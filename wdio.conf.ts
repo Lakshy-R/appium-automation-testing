@@ -62,7 +62,7 @@ export const config: WebdriverIO.Config = {
     "appium:automationName": "UiAutomator2",
     "appium:app": process.env.AppPath || '',
     "appium:autoGrantPermissions": true,
-    "appium:noReset": false,
+    "appium:noReset": true,
         }
     ],
 
