@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
@@ -58,7 +60,7 @@ export const config: WebdriverIO.Config = {
     "appium:platformVersion": "16",
     "appium:deviceName": "emulator-5554",
     "appium:automationName": "UiAutomator2",
-    "appium:app": "C:\\Users\\laksh\\Downloads\\fidelity-20250708-prod-apiLogs_Protected.apk",
+    "appium:app": process.env.AppPath || '',
     "appium:autoGrantPermissions": true,
     "appium:noReset": false,
         }
@@ -240,7 +242,7 @@ export const config: WebdriverIO.Config = {
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
     afterTest: async function() {
-    const appPackage = 'com.mdp.fidelity';
+    const appPackage = process.env.AppPackage || '';
     await browser.terminateApp(appPackage);
     await browser.activateApp(appPackage);
     },
